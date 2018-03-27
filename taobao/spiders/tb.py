@@ -10,7 +10,7 @@ class TbSpider(RedisSpider):
     allowed_domains = ['taobao.com']
 
     def start_requests(self):
-        for i in range(5):
+        for i in range(100):
             page = i*48
             url = "https://s.taobao.com/search?data-key=s&data-value={}&ajax=true&callback=jsonp622&q=%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%94%B5%E8%84%91&imgfile=&js=1&stats_click=search_radio_all:1&initiative_id=staobaoz_20180326&ie=utf8&p4ppushleft=5,48".format(page)
             yield scrapy.Request(url, callback=self.parse)
